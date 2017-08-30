@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 193);
+/******/ 	return __webpack_require__(__webpack_require__.s = 194);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22261,7 +22261,8 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 190 */,
 /* 191 */,
 /* 192 */,
-/* 193 */
+/* 193 */,
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22277,44 +22278,27 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Created by Administrator on 2017/8/29.
- */
-function formatName(user) {
-   return user.firstName + ' ' + user.lastName;
+function tick() {
+    var element = _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'h1',
+            null,
+            'Hello, world!'
+        ),
+        _react2.default.createElement(
+            'h2',
+            null,
+            'It is ',
+            new Date().toLocaleTimeString()
+        )
+    );
+    _reactDom2.default.render(element, document.getElementById('root'));
 }
 
-function getGreeting(user) {
-   if (user) {
-      return _react2.default.createElement(
-         'h1',
-         null,
-         'Hello, ',
-         formatName(user)
-      );
-   }
-   return _react2.default.createElement(
-      'h1',
-      null,
-      'Hello, Stranger.'
-   );
-}
-
-var user = {
-   firstName: 'Harper',
-   lastName: 'Perez'
-};
-
-var element = _react2.default.createElement(
-   'h1',
-   null,
-   'Hello, ',
-   getGreeting(user),
-   '!'
-);
-
-_reactDom2.default.render(element, document.getElementById('root'));
+setInterval(tick(), 100);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=testJSX.js.map
+//# sourceMappingURL=tickJSX.js.map

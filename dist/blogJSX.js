@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 199);
+/******/ 	return __webpack_require__(__webpack_require__.s = 185);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22253,21 +22253,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /***/ }),
 /* 183 */,
 /* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22283,37 +22269,52 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Welcome(props) {
-    return _react2.default.createElement(
-        'h1',
+/**
+ * Created by Administrator on 2017/8/30.
+ */
+function Blog(props) {
+    var sidebar = _react2.default.createElement(
+        'ul',
         null,
-        'Hello, ',
-        props.name
+        props.posts.map(function (post, index) {
+            return _react2.default.createElement(
+                'li',
+                { key: post.id },
+                post.title
+            );
+        })
     );
-}
 
-function tick() {
-    var element = _react2.default.createElement(
+    var content = props.posts.map(function (post, index) {
+        return _react2.default.createElement(
+            'div',
+            { key: post.id },
+            _react2.default.createElement(
+                'h3',
+                null,
+                post.title
+            ),
+            _react2.default.createElement(
+                'p',
+                null,
+                post.content
+            )
+        );
+    });
+
+    return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-            'h1',
-            null,
-            'Hello, world!'
-        ),
-        _react2.default.createElement(
-            'h2',
-            null,
-            'It is ',
-            new Date().toLocaleTimeString()
-        ),
-        _react2.default.createElement(Welcome, { name: 'sara' })
+        sidebar,
+        _react2.default.createElement('hr', null),
+        content
     );
-    _reactDom2.default.render(element, document.getElementById('root'));
 }
 
-setInterval(tick(), 100);
+var posts = [{ id: 1, title: 'hello world', content: 'welcome to learn react!' }, { id: 2, title: 'Installation', content: 'you can install react from npm .' }];
+
+_reactDom2.default.render(_react2.default.createElement(Blog, { posts: posts }), document.getElementById('root'));
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=tickJSX.js.map
+//# sourceMappingURL=blogJSX.js.map

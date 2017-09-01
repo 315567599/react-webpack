@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 199);
+/******/ 	return __webpack_require__(__webpack_require__.s = 197);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22265,13 +22265,13 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 194 */,
 /* 195 */,
 /* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(81);
 
@@ -22283,37 +22283,140 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Welcome(props) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Administrator on 2017/8/30.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+var scaleNames = {
+    c: 'Celsius',
+    f: 'Fahrenheit'
+};
+
+function toCelsius(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+function toFahrenheit(celsius) {
+    return celsius * 9 / 5 + 32;
+}
+
+function tryConver(temperature, convert) {
+    var input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+        return '';
+    }
+    var output = convert(temperature);
+    var rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+}
+
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+        return _react2.default.createElement(
+            'p',
+            null,
+            'The water would boil.'
+        );
+    }
     return _react2.default.createElement(
-        'h1',
+        'p',
         null,
-        'Hello, ',
-        props.name
+        'The water would not boil.'
     );
 }
 
-function tick() {
-    var element = _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'h1',
-            null,
-            'Hello, world!'
-        ),
-        _react2.default.createElement(
-            'h2',
-            null,
-            'It is ',
-            new Date().toLocaleTimeString()
-        ),
-        _react2.default.createElement(Welcome, { name: 'sara' })
-    );
-    _reactDom2.default.render(element, document.getElementById('root'));
-}
+var TemperatureInput = function (_React$Component) {
+    _inherits(TemperatureInput, _React$Component);
 
-setInterval(tick(), 100);
+    function TemperatureInput(props) {
+        _classCallCheck(this, TemperatureInput);
+
+        var _this = _possibleConstructorReturn(this, (TemperatureInput.__proto__ || Object.getPrototypeOf(TemperatureInput)).call(this, props));
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
+    }
+
+    _createClass(TemperatureInput, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.props.onTemperatureChange(e.target.value);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var temperature = this.props.temperature;
+            var scale = this.props.scale;
+
+            return _react2.default.createElement(
+                'fieldset',
+                null,
+                _react2.default.createElement(
+                    'legend',
+                    null,
+                    'Enter temperature in ',
+                    scaleNames[scale],
+                    ':'
+                ),
+                _react2.default.createElement('input', { value: temperature, onChange: this.handleChange })
+            );
+        }
+    }]);
+
+    return TemperatureInput;
+}(_react2.default.Component);
+
+var Calculator = function (_React$Component2) {
+    _inherits(Calculator, _React$Component2);
+
+    function Calculator(props) {
+        _classCallCheck(this, Calculator);
+
+        var _this2 = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+
+        _this2.handleCelsiusChange = _this2.handleCelsiusChange.bind(_this2);
+        _this2.handleFahrenheitChange = _this2.handleFahrenheitChange.bind(_this2);
+        _this2.state = { temperature: '', scale: 'c' };
+        return _this2;
+    }
+
+    _createClass(Calculator, [{
+        key: 'handleCelsiusChange',
+        value: function handleCelsiusChange(temperature) {
+            this.setState({ scale: 'c', temperature: temperature });
+        }
+    }, {
+        key: 'handleFahrenheitChange',
+        value: function handleFahrenheitChange(temperature) {
+            this.setState({ scale: 'f', temperature: temperature });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var scale = this.state.scale;
+            var temperature = this.state.temperature;
+            var celsius = scale == 'f' ? tryConver(temperature, toCelsius) : temperature;
+            var fahrenheit = scale == 'c' ? tryConver(temperature, toFahrenheit) : temperature;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(TemperatureInput, { scale: 'c', temperature: celsius, onTemperatureChange: this.handleCelsiusChange }),
+                _react2.default.createElement(TemperatureInput, { scale: 'f', temperature: fahrenheit, onTemperatureChange: this.handleFahrenheitChange }),
+                _react2.default.createElement(BoilingVerdict, { celsius: parseFloat(celsius) })
+            );
+        }
+    }]);
+
+    return Calculator;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(Calculator, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=tickJSX.js.map
+//# sourceMappingURL=temperatureJSX.js.map

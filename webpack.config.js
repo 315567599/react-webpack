@@ -2,8 +2,10 @@ const path = require('path');
 const fs = require('fs');
 const srcFolder = path.join(__dirname, 'src', 'entries');
 const files = fs.readdirSync(srcFolder);
-//const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const entries = {};
+//const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+//const webpack = require('webpack');
+
 files.forEach( entry => {
     const name = entry.split('.')[0];
     const file = `./src/entries/${name}`;
@@ -19,7 +21,12 @@ module.exports = {
     },
     devtool: 'cheap-source-map',
     plugins: [
-       // new UglifyJSPlugin()
+        //       new webpack.DefinePlugin({
+        //          'process.env':{
+        //             NODE_ENV: JSON.stringify('production')
+        //        }
+        //   }),
+        //   new UglifyJSPlugin()
     ],
     devServer: {
         contentBase: './dist',

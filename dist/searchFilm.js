@@ -22336,29 +22336,94 @@ var SearchBar = function (_React$Component) {
     return SearchBar;
 }(_react2.default.Component);
 
-function FilmRow(props) {
-    var genres = props.genres.join(' ');
-
+function Cast(props) {
+    if (!props.avatars) {
+        return null;
+    }
     return _react2.default.createElement(
-        'tr',
+        'span',
         null,
+        _react2.default.createElement('img', { src: props.avatars !== null && props.avatars.medium != null ? props.avatars.medium : ' ' }),
         _react2.default.createElement(
-            'td',
+            'label',
             null,
-            props.title
+            props.name
         ),
-        _react2.default.createElement(
-            'td',
-            null,
-            props.genres
-        ),
-        _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('img', { src: props.images.medium })
-        )
+        ' '
     );
 }
+
+function CastList(props) {
+    console.log(props.casts);
+    var casts = [];
+    props.casts.forEach(function (cast, idx) {
+        casts.push(_react2.default.createElement(Cast, _extends({}, cast, { key: idx })));
+    });
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        casts
+    );
+}
+
+var FilmRow = function (_React$Component2) {
+    _inherits(FilmRow, _React$Component2);
+
+    function FilmRow(props) {
+        _classCallCheck(this, FilmRow);
+
+        var _this2 = _possibleConstructorReturn(this, (FilmRow.__proto__ || Object.getPrototypeOf(FilmRow)).call(this, props));
+
+        _this2.handleTitleClick = _this2.handleTitleClick.bind(_this2);
+        return _this2;
+    }
+
+    _createClass(FilmRow, [{
+        key: 'handleTitleClick',
+        value: function handleTitleClick(e) {
+            e.preventDefault();
+            var title = e.target.getAttribute('data-id');
+            alert('click ' + title);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var genres = this.props.genres.join(' ');
+
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { 'data-id': this.props.id, onClick: this.handleTitleClick },
+                        this.props.title
+                    )
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.genres
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('img', { src: this.props.images.large })
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(CastList, { casts: this.props.casts })
+                )
+            );
+        }
+    }]);
+
+    return FilmRow;
+}(_react2.default.Component);
 
 function FilmTable(props) {
     var rows = [];
@@ -22378,17 +22443,22 @@ function FilmTable(props) {
                 _react2.default.createElement(
                     'th',
                     null,
-                    'title'
+                    'Title'
                 ),
                 _react2.default.createElement(
                     'th',
                     null,
-                    'genres'
+                    'Genres'
                 ),
                 _react2.default.createElement(
                     'th',
                     null,
-                    'poster'
+                    'Poster'
+                ),
+                _react2.default.createElement(
+                    'th',
+                    null,
+                    'Casts'
                 )
             )
         ),
@@ -22400,26 +22470,32 @@ function FilmTable(props) {
     );
 }
 
-var SearchFilm = function (_React$Component2) {
-    _inherits(SearchFilm, _React$Component2);
+var SearchFilm = function (_React$Component3) {
+    _inherits(SearchFilm, _React$Component3);
 
     function SearchFilm(props) {
         _classCallCheck(this, SearchFilm);
 
-        var _this2 = _possibleConstructorReturn(this, (SearchFilm.__proto__ || Object.getPrototypeOf(SearchFilm)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (SearchFilm.__proto__ || Object.getPrototypeOf(SearchFilm)).call(this, props));
 
-        _this2.state = {
+        _this3.state = {
             searchText: '',
             films: []
         };
-        _this2.handleSearchTextInput = _this2.handleSearchTextInput.bind(_this2);
-        _this2.fetchFilms = _this2.fetchFilms.bind(_this2);
-        _this2.handleSearchClick = _this2.handleSearchClick.bind(_this2);
+        _this3.handleSearchTextInput = _this3.handleSearchTextInput.bind(_this3);
+        _this3.fetchFilms = _this3.fetchFilms.bind(_this3);
+        _this3.handleSearchClick = _this3.handleSearchClick.bind(_this3);
 
-        return _this2;
+        return _this3;
     }
 
     _createClass(SearchFilm, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            //let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
+            //this.fetchFilms(url);
+        }
+    }, {
         key: 'handleSearchTextInput',
         value: function handleSearchTextInput(searchText) {
             this.setState({
@@ -22433,21 +22509,15 @@ var SearchFilm = function (_React$Component2) {
             this.fetchFilms(url);
         }
     }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var url = 'http://localhost:8080/douban/v2/movie/search?q=' + encodeURI(this.state.searchText);
-            this.fetchFilms(url);
-        }
-    }, {
         key: 'fetchFilms',
         value: function fetchFilms(url) {
-            var _this3 = this;
+            var _this4 = this;
 
             (0, _isomorphicFetch2.default)(url).then(function (res) {
                 return res.json();
             }).then(function (result) {
                 console.log(result.subjects);
-                _this3.setState({
+                _this4.setState({
                     films: result.subjects
                 });
             });
@@ -22470,8 +22540,6 @@ var SearchFilm = function (_React$Component2) {
 
     return SearchFilm;
 }(_react2.default.Component);
-
-var films = [{ id: 1, title: '地心历险记', genres: ['刘德华', '张学友'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }, { id: 2, title: '大话西游', genres: ['刘德华', '张学友'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }, { id: 3, title: '绿色森林', genres: ['刘德华', '张学友'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }, { id: 4, title: '绿色森林2', genres: ['刘德华', '张学友'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }];
 
 _reactDom2.default.render(_react2.default.createElement(SearchFilm, null), document.getElementById('root'));
 

@@ -32,16 +32,57 @@ class SearchBar extends React.Component {
     }
 }
 
-function FilmRow(props) {
-    var genres = props.genres.join(' ');
+function Cast(props) {
+    if (!props.avatars) {
+       return null;
+    }
+    return (
+        <span>
+           <img src={(props.avatars !==null && props.avatars.medium != null) ? props.avatars.medium : ' '} />
+           <label>{props.name}</label>
+            {' '}
+        </span>
+    );
+}
+
+function CastList(props) {
+    console.log(props.casts);
+    var casts = [];
+    props.casts.forEach((cast, idx)=>{
+       casts.push(<Cast {...cast} key={idx}/>);
+    });
 
     return (
-       <tr>
-           <td>{props.title}</td>
-           <td>{props.genres}</td>
-           <td><img src= {props.images.medium} /></td>
-       </tr>
+        <div>
+            {casts}
+        </div>
     );
+}
+
+class FilmRow extends React.Component {
+    constructor(props) {
+       super(props);
+       this.handleTitleClick = this.handleTitleClick.bind(this);
+    }
+
+    handleTitleClick(e) {
+        e.preventDefault();
+        let title = e.target.getAttribute('data-id');
+        alert(`click ${title}`);
+    }
+
+    render () {
+        var genres = this.props.genres.join(' ');
+
+        return (
+            <tr>
+                <td><a data-id={this.props.id} onClick={this.handleTitleClick}>{this.props.title}</a></td>
+                <td>{this.props.genres}</td>
+                <td><img src= {this.props.images.large} /></td>
+                <td><CastList casts={this.props.casts}/></td>
+            </tr>
+        );
+    }
 }
 
 
@@ -55,9 +96,10 @@ function FilmTable(props) {
        <table>
            <thead>
                <tr>
-                   <th>title</th>
-                   <th>genres</th>
-                   <th>poster</th>
+                   <th>Title</th>
+                   <th>Genres</th>
+                   <th>Poster</th>
+                   <th>Casts</th>
                </tr>
            </thead>
            <tbody>{rows}</tbody>
@@ -78,6 +120,11 @@ class SearchFilm extends React.Component {
 
     }
 
+    componentDidMount() {
+        //let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
+        //this.fetchFilms(url);
+    }
+
     handleSearchTextInput(searchText) {
         this.setState({
             searchText:searchText
@@ -85,11 +132,6 @@ class SearchFilm extends React.Component {
     }
 
     handleSearchClick() {
-        let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
-        this.fetchFilms(url);
-    }
-
-    componentDidMount() {
         let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
         this.fetchFilms(url);
     }
@@ -120,13 +162,6 @@ class SearchFilm extends React.Component {
        );
     }
 }
-
-var films = [
-    {id:1,title:'地心历险记', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
-    {id:2,title:'大话西游', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
-    {id:3,title:'绿色森林', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
-    {id:4,title:'绿色森林2', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}}
-];
 
 ReactDOM.render(
     <SearchFilm />,

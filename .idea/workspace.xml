@@ -9,15 +9,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/productJSX.js.map" afterPath="$PROJECT_DIR$/dist/productJSX.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/searchFilm.js" afterPath="$PROJECT_DIR$/dist/searchFilm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/searchFilm.js.map" afterPath="$PROJECT_DIR$/dist/searchFilm.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/temperatureJSX.js" afterPath="$PROJECT_DIR$/dist/temperatureJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/temperatureJSX.js.map" afterPath="$PROJECT_DIR$/dist/temperatureJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/testJSX.js" afterPath="$PROJECT_DIR$/dist/testJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/testJSX.js.map" afterPath="$PROJECT_DIR$/dist/testJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/tickJSX.js" afterPath="$PROJECT_DIR$/dist/tickJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/tickJSX.js.map" afterPath="$PROJECT_DIR$/dist/tickJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/toggleJSX.js" afterPath="$PROJECT_DIR$/dist/toggleJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/toggleJSX.js.map" afterPath="$PROJECT_DIR$/dist/toggleJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/warningJSX.js" afterPath="$PROJECT_DIR$/dist/warningJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/warningJSX.js.map" afterPath="$PROJECT_DIR$/dist/warningJSX.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entries/searchFilm.js" afterPath="$PROJECT_DIR$/src/entries/searchFilm.js" />
     </list>
@@ -39,13 +34,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="productJSX.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/entries/productJSX.js">
+          <file leaf-file-name="warningJSX.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/entries/warningJSX.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="30">
+                  <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="searchFilm.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/entries/searchFilm.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="657">
+                  <caret line="78" column="77" lean-forward="false" selection-start-line="78" selection-start-column="77" selection-end-line="78" selection-end-column="77" />
                   <folding>
                     <element signature="e#50#89#0" expanded="true" />
+                    <marker date="1504353361000" expanded="true" signature="3799:4097" ph="..." />
+                    <marker date="1504353361000" expanded="true" signature="3826:4025" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -54,7 +61,7 @@
           <file leaf-file-name="temperatureJSX.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/entries/temperatureJSX.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="930">
+                <state relative-caret-position="220">
                   <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
                   <folding />
                 </state>
@@ -84,42 +91,8 @@
           <file leaf-file-name="toggleJSX.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/entries/toggleJSX.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
+                <state relative-caret-position="505">
                   <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="warningJSX.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/entries/warningJSX.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="searchFilm.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/entries/searchFilm.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#50#89#0" expanded="true" />
-                    <marker date="1504343599000" expanded="true" signature="2737:3035" ph="..." />
-                    <marker date="1504343599000" expanded="true" signature="2764:2963" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="blogJSX.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/entries/blogJSX.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -135,11 +108,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/entries/index.js">
+          <file leaf-file-name="blogJSX.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/entries/blogJSX.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+                <state relative-caret-position="360">
+                  <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -149,11 +122,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="toggleJSX.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/entries/toggleJSX.js">
+          <file leaf-file-name="warningJSX.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/entries/warningJSX.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+                <state relative-caret-position="30">
+                  <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -235,8 +208,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="263" />
-    <option name="y" value="53" />
+    <option name="x" value="791" />
+    <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1337" />
   </component>
@@ -424,12 +397,12 @@
       <workItem from="1504249355679" duration="670000" />
       <workItem from="1504254017200" duration="18000" />
       <workItem from="1504257132818" duration="2369000" />
-      <workItem from="1504322154748" duration="13246000" />
+      <workItem from="1504322154748" duration="18535000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67915000" />
+    <option name="totallyTimeSpent" value="73204000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,7 +414,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="263" y="53" width="2560" height="1337" extended-state="0" />
+    <frame x="791" y="23" width="2560" height="1337" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.134375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -511,7 +484,7 @@
         <state relative-caret-position="608">
           <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
           <folding>
-            <element signature="e#50#89#0" expanded="true" />
+            <element signature="e#50#89#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,22 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entries/blogJSX.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entries/clockJSX.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entries/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -813,7 +770,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#50#89#0" expanded="true" />
+            <element signature="e#50#89#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,7 +785,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entries/temperatureJSX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
+        <state relative-caret-position="220">
           <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
           <folding />
         </state>
@@ -852,20 +809,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entries/toggleJSX.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
+        <state relative-caret-position="505">
           <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entries/clockJSX.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entries/blogJSX.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entries/searchFilm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+        <state relative-caret-position="657">
+          <caret line="78" column="77" lean-forward="false" selection-start-line="78" selection-start-column="77" selection-end-line="78" selection-end-column="77" />
           <folding>
             <element signature="e#50#89#0" expanded="true" />
-            <marker date="1504343599000" expanded="true" signature="2737:3035" ph="..." />
-            <marker date="1504343599000" expanded="true" signature="2764:2963" ph="..." />
+            <marker date="1504353361000" expanded="true" signature="3799:4097" ph="..." />
+            <marker date="1504353361000" expanded="true" signature="3826:4025" ph="..." />
           </folding>
         </state>
       </provider>

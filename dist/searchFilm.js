@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 198);
+/******/ 	return __webpack_require__(__webpack_require__.s = 197);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22265,12 +22265,13 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 194 */,
 /* 195 */,
 /* 196 */,
-/* 197 */,
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -22289,135 +22290,151 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Administrator on 2017/8/30.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Administrator on 2017/9/1.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 搜索电影
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
-var scaleNames = {
-    c: 'Celsius',
-    f: 'Fahrenheit'
-};
+var SearchBar = function (_React$Component) {
+    _inherits(SearchBar, _React$Component);
 
-function toCelsius(fahrenheit) {
-    return (fahrenheit - 32) * 5 / 9;
-}
+    function SearchBar(props) {
+        _classCallCheck(this, SearchBar);
 
-function toFahrenheit(celsius) {
-    return celsius * 9 / 5 + 32;
-}
+        var _this = _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this, props));
 
-function tryConver(temperature, convert) {
-    var input = parseFloat(temperature);
-    if (Number.isNaN(input)) {
-        return '';
-    }
-    var output = convert(temperature);
-    var rounded = Math.round(output * 1000) / 1000;
-    return rounded.toString();
-}
-
-function BoilingVerdict(props) {
-    if (props.celsius >= 100) {
-        return _react2.default.createElement(
-            'p',
-            null,
-            'The water would boil.'
-        );
-    }
-    return _react2.default.createElement(
-        'p',
-        null,
-        'The water would not boil.'
-    );
-}
-
-var TemperatureInput = function (_React$Component) {
-    _inherits(TemperatureInput, _React$Component);
-
-    function TemperatureInput(props) {
-        _classCallCheck(this, TemperatureInput);
-
-        var _this = _possibleConstructorReturn(this, (TemperatureInput.__proto__ || Object.getPrototypeOf(TemperatureInput)).call(this, props));
-
-        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSearchInputChange = _this.handleSearchInputChange.bind(_this);
         return _this;
     }
 
-    _createClass(TemperatureInput, [{
-        key: 'handleChange',
-        value: function handleChange(e) {
-            this.props.onTemperatureChange(e.target.value);
+    _createClass(SearchBar, [{
+        key: 'handleSearchInputChange',
+        value: function handleSearchInputChange(e) {
+            this.props.onSearchTextChange(e.target.value);
         }
     }, {
         key: 'render',
         value: function render() {
-            var temperature = this.props.temperature;
-            var scale = this.props.scale;
-
             return _react2.default.createElement(
-                'fieldset',
+                'form',
                 null,
-                _react2.default.createElement(
-                    'legend',
-                    null,
-                    'Enter temperature in ',
-                    scaleNames[scale],
-                    ':'
-                ),
-                _react2.default.createElement('input', { value: temperature, onChange: this.handleChange })
+                _react2.default.createElement('input', { type: 'text', placeholder: 'search...', value: this.props.searchText, onChange: this.handleSearchInputChange })
             );
         }
     }]);
 
-    return TemperatureInput;
+    return SearchBar;
 }(_react2.default.Component);
 
-var Calculator = function (_React$Component2) {
-    _inherits(Calculator, _React$Component2);
+function FilmRow(props) {
 
-    function Calculator(props) {
-        _classCallCheck(this, Calculator);
+    var genres = props.genres.join(' ');
 
-        var _this2 = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+    return _react2.default.createElement(
+        'tr',
+        null,
+        _react2.default.createElement(
+            'td',
+            null,
+            'props.title'
+        ),
+        _react2.default.createElement(
+            'td',
+            null,
+            'props.genres'
+        ),
+        _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('img', { src: props.images.medium })
+        )
+    );
+}
 
-        _this2.handleCelsiusChange = _this2.handleCelsiusChange.bind(_this2);
-        _this2.handleFahrenheitChange = _this2.handleFahrenheitChange.bind(_this2);
-        _this2.state = { temperature: '', scale: 'c' };
+function FilmTable(props) {
+    var rows = [];
+    props.films.forEach(function (film) {
+        rows.push(_react2.default.createElement(FilmRow, _extends({}, film, { key: film.id })));
+    });
+
+    return _react2.default.createElement(
+        'table',
+        null,
+        _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'th',
+                    null,
+                    'title'
+                ),
+                _react2.default.createElement(
+                    'th',
+                    null,
+                    'genres'
+                ),
+                _react2.default.createElement(
+                    'th',
+                    null,
+                    'poster'
+                )
+            )
+        ),
+        _react2.default.createElement(
+            'tbody',
+            null,
+            rows
+        )
+    );
+}
+
+var SearchFilm = function (_React$Component2) {
+    _inherits(SearchFilm, _React$Component2);
+
+    function SearchFilm(props) {
+        _classCallCheck(this, SearchFilm);
+
+        var _this2 = _possibleConstructorReturn(this, (SearchFilm.__proto__ || Object.getPrototypeOf(SearchFilm)).call(this, props));
+
+        _this2.state = {
+            searchText: ''
+        };
+        _this2.handleSearchTextInput = _this2.handleSearchTextInput.bind(_this2);
+
         return _this2;
     }
 
-    _createClass(Calculator, [{
-        key: 'handleCelsiusChange',
-        value: function handleCelsiusChange(temperature) {
-            this.setState({ scale: 'c', temperature: temperature });
-        }
-    }, {
-        key: 'handleFahrenheitChange',
-        value: function handleFahrenheitChange(temperature) {
-            this.setState({ scale: 'f', temperature: temperature });
+    _createClass(SearchFilm, [{
+        key: 'handleSearchTextInput',
+        value: function handleSearchTextInput(searchText) {
+            this.setState({
+                searchText: searchText
+            });
         }
     }, {
         key: 'render',
         value: function render() {
-            var scale = this.state.scale;
-            var temperature = this.state.temperature;
-            var celsius = scale == 'f' ? tryConver(temperature, toCelsius) : temperature;
-            var fahrenheit = scale == 'c' ? tryConver(temperature, toFahrenheit) : temperature;
-
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(TemperatureInput, { scale: 'c', temperature: celsius, onTemperatureChange: this.handleCelsiusChange }),
-                _react2.default.createElement(TemperatureInput, { scale: 'f', temperature: fahrenheit, onTemperatureChange: this.handleFahrenheitChange }),
-                _react2.default.createElement(BoilingVerdict, { celsius: parseFloat(celsius) })
+                _react2.default.createElement(SearchBar, {
+                    searchText: this.state.searchText,
+                    onSearchTextChange: this.handleSearchTextInput
+                }),
+                _react2.default.createElement(FilmTable, { films: this.props.films })
             );
         }
     }]);
 
-    return Calculator;
+    return SearchFilm;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(Calculator, null), document.getElementById('root'));
+var films = [{ title: '地心历险记', genres: ['朱茵', '李丽珍'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }, { title: '大话三国', genres: ['朱茵', '李丽珍'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }, { title: '桃色交易', genres: ['朱茵', '李丽珍'], images: { medium: 'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg' } }];
+
+_reactDom2.default.render(_react2.default.createElement(SearchFilm, { films: films }), document.getElementById('root'));
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=temperatureJSX.js.map
+//# sourceMappingURL=searchFilm.js.map

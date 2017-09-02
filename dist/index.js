@@ -22761,7 +22761,7 @@ exports = module.exports = __webpack_require__(183)(undefined);
 
 
 // module
-exports.push([module.i, "body {\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: sans-serif;\r\n}", ""]);
+exports.push([module.i, "body {\n    margin: 0;\n    padding: 0;\n    font-family: sans-serif;\n}", ""]);
 
 // exports
 

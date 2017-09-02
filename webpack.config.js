@@ -24,12 +24,6 @@ module.exports = {
     },
     devtool: __DEV__ ? 'cheap-source-map' : null,
     plugins: [
-        //       new webpack.DefinePlugin({
-        //          'process.env':{
-        //             NODE_ENV: JSON.stringify('production')
-        //        }
-        //   }),
-        //   new UglifyJSPlugin()
     ],
     devServer: {
         contentBase: './dist',
@@ -66,3 +60,14 @@ module.exports = {
         ],
     }
 };
+
+if (!__DEV__) {
+    module.exports.plugins.push(
+        new webpack.DefinePlugin({
+            'process.env':{
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new UglifyJSPlugin()
+    );
+}

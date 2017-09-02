@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7572b7ff-9190-4e17-9197-509180439602" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/secrets.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/beautiful" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/blogJSX.js.map" afterPath="$PROJECT_DIR$/dist/blogJSX.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/clockJSX.js.map" afterPath="$PROJECT_DIR$/dist/clockJSX.js.map" />
@@ -10,15 +10,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/productJSX.js.map" afterPath="$PROJECT_DIR$/dist/productJSX.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/searchFilm.js" afterPath="$PROJECT_DIR$/dist/searchFilm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/searchFilm.js.map" afterPath="$PROJECT_DIR$/dist/searchFilm.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/temperatureJSX.js" afterPath="$PROJECT_DIR$/dist/temperatureJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/temperatureJSX.js.map" afterPath="$PROJECT_DIR$/dist/temperatureJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/testJSX.js" afterPath="$PROJECT_DIR$/dist/testJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/testJSX.js.map" afterPath="$PROJECT_DIR$/dist/testJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/tickJSX.js" afterPath="$PROJECT_DIR$/dist/tickJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/tickJSX.js.map" afterPath="$PROJECT_DIR$/dist/tickJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/toggleJSX.js" afterPath="$PROJECT_DIR$/dist/toggleJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/toggleJSX.js.map" afterPath="$PROJECT_DIR$/dist/toggleJSX.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/warningJSX.js" afterPath="$PROJECT_DIR$/dist/warningJSX.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/warningJSX.js.map" afterPath="$PROJECT_DIR$/dist/warningJSX.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entries/searchFilm.js" afterPath="$PROJECT_DIR$/src/entries/searchFilm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
@@ -49,16 +44,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchFilm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="searchFilm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entries/searchFilm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="64" column="33" lean-forward="false" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+            <state relative-caret-position="382">
+              <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
               <folding>
                 <element signature="e#50#89#0" expanded="true" />
-                <marker date="1504365870000" expanded="true" signature="4384:4716" ph="..." />
-                <marker date="1504365870000" expanded="true" signature="4411:4610" ph="..." />
+                <marker date="1504365980000" expanded="true" signature="3716:4048" ph="..." />
+                <marker date="1504365980000" expanded="true" signature="3743:3942" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beautiful" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doc/beautiful">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="610">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,16 +93,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testJSX.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entries/testJSX.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -191,8 +186,9 @@
         <option value="$PROJECT_DIR$/doc/filmSearch" />
         <option value="$PROJECT_DIR$/dist/searchFilm.html" />
         <option value="$PROJECT_DIR$/src/config/secrets.js" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/doc/beautiful" />
         <option value="$PROJECT_DIR$/src/entries/searchFilm.js" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -405,12 +401,12 @@
       <workItem from="1504254017200" duration="18000" />
       <workItem from="1504257132818" duration="2369000" />
       <workItem from="1504322154748" duration="19246000" />
-      <workItem from="1504361022257" duration="3210000" />
+      <workItem from="1504361022257" duration="3510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77125000" />
+    <option name="totallyTimeSpent" value="77425000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,16 +475,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/entries/productJSX.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding>
-            <element signature="e#50#89#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/graphql.js.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2109">
@@ -826,23 +812,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+    <entry file="file://$PROJECT_DIR$/doc/beautiful">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entries/searchFilm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="64" column="33" lean-forward="false" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="382">
+          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding>
             <element signature="e#50#89#0" expanded="true" />
-            <marker date="1504365870000" expanded="true" signature="4384:4716" ph="..." />
-            <marker date="1504365870000" expanded="true" signature="4411:4610" ph="..." />
+            <marker date="1504365980000" expanded="true" signature="3716:4048" ph="..." />
+            <marker date="1504365980000" expanded="true" signature="3743:3942" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -36,21 +36,6 @@ function Cast(props) {
     if (!props.avatars) {
        return null;
     }
-    //if (typeof response.entity._links.last != "undefined")
-    //if (/^[0-9]+$/.test(pageSize))
-    //if ("first" in this.props.links)
-    //Object.keys(schema.entity.properties).forEach(function (property) {
-    // (schema.entity.properties[property].hasOwnProperty('format') &&
-    //options = options || {};
-    //  settings.hasContent = typeof settings.body !== 'undefined';
-    //const root = typeof window !== 'undefined' ? window : {};
-    //const rightBarStyle = {
-    //...barStyle,
-    //    left: null,
-    //    right: '-100%'
-    //};
-    //    return { ...style, bottom: `${4 + index * 8}rem` };
-    //    const { toasts = [], dispatch } = this.props;
     return (
         <span>
            <img src={(props.avatars !==null && props.avatars.medium != null) ? props.avatars.medium : ' '} />

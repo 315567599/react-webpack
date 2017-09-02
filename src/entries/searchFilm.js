@@ -77,9 +77,10 @@ class SearchFilm extends React.Component {
     }
 
     componentDidMount() {
+        console.log('componentDidMount');
         this.fetchFilms()
             .then(res => {
-                console.log(res);
+                console.log(res.join());
                 return res.json();
             })
             .then(result => {

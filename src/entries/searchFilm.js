@@ -1,6 +1,5 @@
 /**
  * Created by Administrator on 2017/9/1.
- * 搜索电影
  */
 
 import React, {Component} from 'react';
@@ -11,16 +10,23 @@ class SearchBar extends React.Component {
     constructor(props) {
        super(props);
        this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+       this.handleSearchClick = this.handleSearchClick.bind(this);
     }
 
     handleSearchInputChange(e) {
        this.props.onSearchTextChange(e.target.value);
     }
 
+    handleSearchClick(e) {
+       e.preventDefault();
+       this.props.onSearchClick();
+    }
+
     render() {
        return (
           <form>
               <input type="text" placeholder="search..." value={this.props.searchText} onChange={this.handleSearchInputChange}/>
+              <input type="submit"  value="submit" onClick={this.handleSearchClick}/>
           </form>
        );
     }
@@ -64,9 +70,11 @@ class SearchFilm extends React.Component {
         super(props);
         this.state = {
             searchText: '',
+            films:[]
         };
         this.handleSearchTextInput = this.handleSearchTextInput.bind(this);
         this.fetchFilms = this.fetchFilms.bind(this);
+        this.handleSearchClick = this.handleSearchClick.bind(this);
 
     }
 
@@ -76,21 +84,27 @@ class SearchFilm extends React.Component {
         });
     }
 
+    handleSearchClick() {
+        let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
+        this.fetchFilms(url);
+    }
+
     componentDidMount() {
-        console.log('componentDidMount');
-        this.fetchFilms()
+        let url =`http://localhost:8080/douban/v2/movie/search?q=${encodeURI(this.state.searchText)}`;
+        this.fetchFilms(url);
+    }
+
+    fetchFilms(url) {
+        fetch(url)
             .then(res => {
-                console.log(res.join());
                 return res.json();
             })
             .then(result => {
-                console.log(result);
+                console.log(result.subjects);
+                this.setState({
+                    films:result.subjects
+                });
             });
-    }
-
-    fetchFilms() {
-        let url ='http://localhost:8080/douban/v2/movie/search?q=%E5%9C%B0%E5%BF%83%E5%8E%86%E9%99%A9%E8%AE%B0';
-        return fetch(url);
     }
 
     render() {
@@ -99,20 +113,22 @@ class SearchFilm extends React.Component {
                <SearchBar
                   searchText = {this.state.searchText}
                   onSearchTextChange = {this.handleSearchTextInput}
+                  onSearchClick = {this.handleSearchClick}
                />
-               <FilmTable films={this.props.films} />
+               <FilmTable films={this.state.films} />
            </div>
        );
     }
 }
 
 var films = [
-    {id:1,title:'地心历险记', genres:['朱茵','李丽珍'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
-    {id:2,title:'大话三国', genres:['朱茵','李丽珍'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
-    {id:3,title:'桃色交易', genres:['朱茵','李丽珍'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}}
+    {id:1,title:'地心历险记', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
+    {id:2,title:'大话西游', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
+    {id:3,title:'绿色森林', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}},
+    {id:4,title:'绿色森林2', genres:['刘德华','张学友'], images:{medium:'https://img1.doubanio.com/view/movie_poster_cover/spst/public/p456694917.jpg'}}
 ];
 
 ReactDOM.render(
-    <SearchFilm films = {films}/>,
+    <SearchFilm />,
     document.getElementById('root')
 );

@@ -18,7 +18,8 @@ files.forEach( entry => {
 module.exports = {
     entry: entries,
     output: {
-        filename: '[name].js',
+        filename: __DEV__ ? '[name].js' : '[name]-[hash].js',
+        chunkFilename: __DEV__ ? '[name].js' : '[name]-[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
 
     },
@@ -37,6 +38,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.json$/,
+                loaders: [
+                    'json-loader'
+                ]
             },
             {
                 test:/\.(png|jpg)$/,

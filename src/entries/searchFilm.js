@@ -36,6 +36,21 @@ function Cast(props) {
     if (!props.avatars) {
        return null;
     }
+    //if (typeof response.entity._links.last != "undefined")
+    //if (/^[0-9]+$/.test(pageSize))
+    //if ("first" in this.props.links)
+    //Object.keys(schema.entity.properties).forEach(function (property) {
+    // (schema.entity.properties[property].hasOwnProperty('format') &&
+    //options = options || {};
+    //  settings.hasContent = typeof settings.body !== 'undefined';
+    //const root = typeof window !== 'undefined' ? window : {};
+    //const rightBarStyle = {
+    //...barStyle,
+    //    left: null,
+    //    right: '-100%'
+    //};
+    //    return { ...style, bottom: `${4 + index * 8}rem` };
+    //    const { toasts = [], dispatch } = this.props;
     return (
         <span>
            <img src={(props.avatars !==null && props.avatars.medium != null) ? props.avatars.medium : ' '} />
@@ -46,11 +61,9 @@ function Cast(props) {
 }
 
 function CastList(props) {
-    console.log(props.casts);
-    var casts = [];
-    props.casts.forEach((cast, idx)=>{
-       casts.push(<Cast {...cast} key={idx}/>);
-    });
+    var casts = props.casts.map((cast, idx)=>
+       <Cast {...cast} key={idx}/>
+    );
 
     return (
         <div>
@@ -87,10 +100,9 @@ class FilmRow extends React.Component {
 
 
 function FilmTable(props) {
-    var rows = [];
-    props.films.forEach((film) =>{
-        rows.push(<FilmRow {...film}  key={film.id}/>)
-    });
+    var rows = props.films.map(film =>
+        <FilmRow {...film}  key={film.id} />
+    );
 
     return (
        <table>
@@ -157,7 +169,9 @@ class SearchFilm extends React.Component {
                   onSearchTextChange = {this.handleSearchTextInput}
                   onSearchClick = {this.handleSearchClick}
                />
-               <FilmTable films={this.state.films} />
+               <FilmTable
+                   films={this.state.films}
+               />
            </div>
        );
     }

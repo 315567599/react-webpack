@@ -22340,6 +22340,21 @@ function Cast(props) {
     if (!props.avatars) {
         return null;
     }
+    //if (typeof response.entity._links.last != "undefined")
+    //if (/^[0-9]+$/.test(pageSize))
+    //if ("first" in this.props.links)
+    //Object.keys(schema.entity.properties).forEach(function (property) {
+    // (schema.entity.properties[property].hasOwnProperty('format') &&
+    //options = options || {};
+    //  settings.hasContent = typeof settings.body !== 'undefined';
+    //const root = typeof window !== 'undefined' ? window : {};
+    //const rightBarStyle = {
+    //...barStyle,
+    //    left: null,
+    //    right: '-100%'
+    //};
+    //    return { ...style, bottom: `${4 + index * 8}rem` };
+    //    const { toasts = [], dispatch } = this.props;
     return _react2.default.createElement(
         'span',
         null,
@@ -22354,10 +22369,8 @@ function Cast(props) {
 }
 
 function CastList(props) {
-    console.log(props.casts);
-    var casts = [];
-    props.casts.forEach(function (cast, idx) {
-        casts.push(_react2.default.createElement(Cast, _extends({}, cast, { key: idx })));
+    var casts = props.casts.map(function (cast, idx) {
+        return _react2.default.createElement(Cast, _extends({}, cast, { key: idx }));
     });
 
     return _react2.default.createElement(
@@ -22426,9 +22439,8 @@ var FilmRow = function (_React$Component2) {
 }(_react2.default.Component);
 
 function FilmTable(props) {
-    var rows = [];
-    props.films.forEach(function (film) {
-        rows.push(_react2.default.createElement(FilmRow, _extends({}, film, { key: film.id })));
+    var rows = props.films.map(function (film) {
+        return _react2.default.createElement(FilmRow, _extends({}, film, { key: film.id }));
     });
 
     return _react2.default.createElement(
@@ -22533,7 +22545,9 @@ var SearchFilm = function (_React$Component3) {
                     onSearchTextChange: this.handleSearchTextInput,
                     onSearchClick: this.handleSearchClick
                 }),
-                _react2.default.createElement(FilmTable, { films: this.state.films })
+                _react2.default.createElement(FilmTable, {
+                    films: this.state.films
+                })
             );
         }
     }]);

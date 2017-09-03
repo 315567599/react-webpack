@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bulid": "webpack",
+    "build": "export NODE_ENV=production && webpack --progress --colors",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open"
   },

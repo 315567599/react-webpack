@@ -7,6 +7,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 var __DEV__ = process.env.NODE_ENV !== 'production';
+console.log(process.env.NODE_ENV);
+console.log(__DEV__);
 
 files.forEach( entry => {
     const name = entry.split('.')[0];
@@ -18,13 +20,18 @@ files.forEach( entry => {
 module.exports = {
     entry: entries,
     output: {
-        filename: __DEV__ ? '[name].js' : '[name]-[hash].js',
-        chunkFilename: __DEV__ ? '[name].js' : '[name]-[chunkhash].js',
+        filename: __DEV__ ? '[name].js' : '[name]-[hash].min.js',
+        chunkFilename: __DEV__ ? '[name].js' : '[name]-[chunkhash].min.js',
         path: path.resolve(__dirname, 'dist'),
 
     },
-    devtool: __DEV__ ? 'cheap-source-map' : null,
+    devtool: __DEV__ ? 'cheap-source-map' : false,
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(__DEV__ ? 'development' : 'production')
+            }
+        }),
     ],
     devServer: {
         contentBase: './dist',

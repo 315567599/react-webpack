@@ -1,14 +1,11 @@
 const path = require('path');
 const fs = require('fs');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 const srcFolder = path.join(__dirname, 'src', 'entries');
 const files = fs.readdirSync(srcFolder);
 const entries = {};
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require('webpack');
 
-var __DEV__ = process.env.NODE_ENV !== 'production';
-console.log(process.env.NODE_ENV);
-console.log(__DEV__);
 
 files.forEach( entry => {
     const name = entry.split('.')[0];
@@ -16,6 +13,8 @@ files.forEach( entry => {
     entries[name] = file;
     }
 );
+
+var __DEV__ = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     entry: entries,

@@ -32,6 +32,9 @@ class MediaEditorExample extends React.Component {
        };
        this.onChange = (editorState) => this.setState({editorState});
        this.onURLChange = (e) => this.setState({urlValue:e.target.value});
+       this.addAudio = this._addAudio.bind(this);
+       this.addImage = this._addImage.bind(this);
+       this.addVideo = this._addVideo.bind(this);
        this.confirmMedia = this._confirmMedia.bind(this);
        this.handleKeyCommand = this._handleKeyCommand.bind(this);
        this.onURLInputKeyDown = this._onURLInputKeyDown.bind(this);
@@ -58,8 +61,10 @@ class MediaEditorExample extends React.Component {
        );
        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
        const newEditorState = EditorState.set(
-           editorState, {currentContent:contentStateWithEntity}
+           editorState,
+           {currentContent:contentStateWithEntity}
            );
+       console.log(newEditorState);
        this.setState({
            editorState: AtomicBlockUtils.insertAtomicBlock(
                 newEditorState,
@@ -85,8 +90,7 @@ class MediaEditorExample extends React.Component {
        this.setState({
            showURLInput:true,
            urlValue:'',
-           urlType:type
-       }, () =>{
+           urlType:type }, () =>{
            setTimeout(() =>this.refs.url.focus(), 0);
        });
     }
@@ -94,7 +98,7 @@ class MediaEditorExample extends React.Component {
     _addAudio() {
        this._promptForMedia('audio');
     }
-    _addIamage() {
+    _addImage() {
         this._promptForMedia('image');
     }
     _addVideo(){
@@ -187,8 +191,57 @@ const Video = (props) => {
 }
 
 const Media = (props) => {
-    const entity = props.contentState.getEntity(props.block);
+    const entity = props.contentState.getEntity(
+        props.block.getEntityAt(0)
+    );
+    const {src} = entity.getData();
+    const type = entity.getType();
+
+    let media;
+    if (type === 'audio') {
+       media = <Audio src={src}/>
+    } else if (type === 'image') {
+       media = <Image src={src}/>
+    } else if (type === 'video') {
+       media = <Video src={src}/>
+    }
+
+    return media;
 }
 
+const styles = {
+    root: {
+        fontFamily: '\'Georgia\', serif',
+        padding: 20,
+        width: 600,
+    },
+    buttons: {
+        marginBottom: 10,
+    },
+    urlInputContainer: {
+        marginBottom: 10,
+    },
+    urlInput: {
+        fontFamily: '\'Georgia\', serif',
+        marginRight: 10,
+        padding: 3,
+    },
+    editor: {
+        border: '1px solid #ccc',
+        cursor: 'text',
+        minHeight: 80,
+        padding: 10,
+    },
+    button: {
+        marginTop: 10,
+        textAlign: 'center',
+    },
+    media: {
+        width: '100%',
+    },
+}
 
-
+ReactDOM.render(
+   <MediaEditorExample/>,
+    document.getElementById('root')
+);

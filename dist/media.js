@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 325);
+/******/ 	return __webpack_require__(__webpack_require__.s = 334);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -45207,7 +45207,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 322 */,
 /* 323 */,
 /* 324 */,
-/* 325 */
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45229,8 +45238,6 @@ var _immutable2 = _interopRequireDefault(_immutable);
 
 var _draftJs = __webpack_require__(236);
 
-var _draftJs2 = _interopRequireDefault(_draftJs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45238,111 +45245,205 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Administrator on 2017/9/4.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Administrator on 2017/9/5.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
-var rawContent = {
-    blocks: [{
-        text: 'This is an "immutable" entity: Superman. Deleting any ' + 'characters will delete the entire entity. Adding characters ' + 'will remove the entity from the range.',
-        type: 'unstyled',
-        entityRanges: [{ offset: 31, length: 8, key: 'first' }]
-    }, {
-        text: '',
-        type: 'unstyled'
-    }, {
-        text: 'This is a "mutable" entity: Batman. Characters may be added ' + 'and removed.',
-        type: 'unstyled',
-        entityRanges: [{ offset: 28, length: 6, key: 'second' }]
-    }, {
-        text: '',
-        type: 'unstyled'
-    }, {
-        text: 'This is a "segmented" entity: Green Lantern. Deleting any ' + 'characters will delete the current "segment" from the range. ' + 'Adding characters will remove the entire entity from the range.',
-        type: 'unstyled',
-        entityRanges: [{ offset: 30, length: 13, key: 'third' }]
-    }, {
-        text: 'Adding : new style type.',
-        type: 'test',
-        entityRanges: [{ offset: 1, length: 13, key: 'four' }]
-    }],
-    entityMap: {
-        first: {
-            type: 'TOKEN',
-            mutability: 'IMMUTABLE'
-        },
-        second: {
-            type: 'TOKEN',
-            mutability: 'MUTABLE'
-        },
-        third: {
-            type: 'TOKEN',
-            mutability: 'SEGMENTED'
-        },
-        four: {
-            type: 'TOKEN',
-            mutability: 'SEGMENTED'
-        }
-    }
-};
+var MediaEditorExample = function (_React$Component) {
+    _inherits(MediaEditorExample, _React$Component);
 
-var blockRenderMap = _immutable2.default.Map({
-    'test': {
-        element: 'h1'
-    }
-});
-var extendedBlockRenderMap = _draftJs2.default.DefaultDraftBlockRenderMap.merge(blockRenderMap);
+    function MediaEditorExample(props) {
+        _classCallCheck(this, MediaEditorExample);
 
-var EntityEditorExample = function (_React$Component) {
-    _inherits(EntityEditorExample, _React$Component);
+        var _this = _possibleConstructorReturn(this, (MediaEditorExample.__proto__ || Object.getPrototypeOf(MediaEditorExample)).call(this, props));
 
-    function EntityEditorExample(props) {
-        _classCallCheck(this, EntityEditorExample);
-
-        var _this = _possibleConstructorReturn(this, (EntityEditorExample.__proto__ || Object.getPrototypeOf(EntityEditorExample)).call(this, props));
-
-        var decorator = new _draftJs.CompositeDecorator([{
-            strategy: getEntityStrategy('IMMUTABLE'),
-            component: TokenSpan
-        }, {
-            strategy: getEntityStrategy('MUTABLE'),
-            component: TokenSpan
-        }, {
-            strategy: getEntityStrategy('SEGMENTED'),
-            component: TokenSpan
-        }]);
-        var blocks = (0, _draftJs.convertFromRaw)(rawContent);
         _this.state = {
-            editorState: _draftJs.EditorState.createWithContent(blocks, decorator)
+            editorState: _draftJs.EditorState.createEmpty(),
+            showURLInput: false,
+            url: '',
+            urlType: ''
         };
         _this.focus = function () {
             return _this.refs.editor.focus();
-        };
-        _this.onChange = function (editorState) {
-            return _this.setState({ editorState: editorState });
         };
         _this.logState = function () {
             var content = _this.state.editorState.getCurrentContent();
             console.log((0, _draftJs.convertToRaw)(content));
         };
+        _this.onChange = function (editorState) {
+            return _this.setState({ editorState: editorState });
+        };
+        _this.onURLChange = function (e) {
+            return _this.setState({ urlValue: e.target.value });
+        };
+        _this.confirmMedia = _this._confirmMedia.bind(_this);
+        _this.handleKeyCommand = _this._handleKeyCommand.bind(_this);
+        _this.onURLInputKeyDown = _this._onURLInputKeyDown.bind(_this);
         return _this;
     }
 
-    _createClass(EntityEditorExample, [{
+    _createClass(MediaEditorExample, [{
+        key: '_handleKeyCommand',
+        value: function _handleKeyCommand(command) {
+            var editorState = this.state.editorState;
+
+            var newState = _draftJs.RichUtils.handleKeyCommand(editorState, command);
+            if (newState) {
+                this.onChange(newState);
+                return true;
+            }
+            return false;
+        }
+    }, {
+        key: '_confirmMedia',
+        value: function _confirmMedia(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+            var _state = this.state,
+                editorState = _state.editorState,
+                urlValue = _state.urlValue,
+                urlType = _state.urlType;
+
+            var contentState = editorState.getCurrentContent();
+            var contentStateWithEntity = contentState.createEntity(urlType, 'IMMUTABLE', { src: urlValue });
+            var entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+            var newEditorState = _draftJs.EditorState.set(editorState, { currentContent: contentStateWithEntity });
+            this.setState({
+                editorState: _draftJs.AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, ''),
+                showURLInput: false,
+                urlValue: ''
+            }, function () {
+                setTimeout(function () {
+                    return _this2.focus();
+                }, 0);
+            });
+        }
+    }, {
+        key: '_onURLInputKeyDown',
+        value: function _onURLInputKeyDown(e) {
+            if (e.which === 13) {
+                this._confirmMedia(e);
+            }
+        }
+    }, {
+        key: '_promptForMedia',
+        value: function _promptForMedia(type) {
+            var _this3 = this;
+
+            var editorState = this.state.editorState;
+
+            this.setState({
+                showURLInput: true,
+                urlValue: '',
+                urlType: type
+            }, function () {
+                setTimeout(function () {
+                    return _this3.refs.url.focus();
+                }, 0);
+            });
+        }
+    }, {
+        key: '_addAudio',
+        value: function _addAudio() {
+            this._promptForMedia('audio');
+        }
+    }, {
+        key: '_addIamage',
+        value: function _addIamage() {
+            this._promptForMedia('image');
+        }
+    }, {
+        key: '_addVideo',
+        value: function _addVideo() {
+            this._promptForMedia('video');
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var urlInput = void 0;
+            if (this.state.showURLInput) {
+                urlInput = _react2.default.createElement(
+                    'div',
+                    { style: styles.urlInputContainer },
+                    _react2.default.createElement('input', {
+                        onChange: this.onURLChange,
+                        ref: 'url',
+                        style: styles.urlInput,
+                        type: 'text',
+                        value: this.state.urlValue,
+                        onKeyDown: this.onURLInputKeyDown
+                    }),
+                    _react2.default.createElement(
+                        'button',
+                        { onMouseDown: this.confirmMedia },
+                        'Confirm'
+                    )
+                );
+            }
+
             return _react2.default.createElement(
                 'div',
                 { style: styles.root },
                 _react2.default.createElement(
                     'div',
+                    { style: { marginBottom: 10 } },
+                    'Use the buttons to add audio, image, or video.'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { style: { marginBottom: 10 } },
+                    'Here are some local examples that can be entered as a URL:',
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'media.mp3'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'media.png'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'media.mp4'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { style: styles.buttons },
+                    _react2.default.createElement(
+                        'button',
+                        { onMouseDown: this.addAudio, style: { marginRight: 10 } },
+                        'Add Audio'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onMouseDown: this.addImage, style: { marginRight: 10 } },
+                        'Add Image'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onMouseDown: this.addVideo, style: { marginRight: 10 } },
+                        'Add Vido'
+                    )
+                ),
+                urlInput,
+                _react2.default.createElement(
+                    'div',
                     { style: styles.editor, onClick: this.focus },
                     _react2.default.createElement(_draftJs.Editor, {
+                        blockRendererFn: mediaBlockRenderer,
                         editorState: this.state.editorState,
+                        handleKeyCommand: this.handleKeyCommand,
                         onChange: this.onChange,
                         placeholder: 'Enter some text...',
-                        ref: 'editor',
-                        blockRenderMap: extendedBlockRenderMap
+                        ref: 'editor'
                     })
                 ),
                 _react2.default.createElement('input', {
@@ -45355,46 +45456,65 @@ var EntityEditorExample = function (_React$Component) {
         }
     }]);
 
-    return EntityEditorExample;
+    return MediaEditorExample;
 }(_react2.default.Component);
 
-function getEntityStrategy(mutability) {
-    return function (contentBlock, callback, contentState) {
-        contentBlock.findEntityRanges(function (character) {
-            console.log(character.toJS());
-            var entityKey = character.getEntity();
-            if (entityKey === null) {
-                return false;
-            }
-            return contentState.getEntity(entityKey).getMutability() === mutability;
-        }, callback);
-    };
-}
-function getDecoratedStyle(mutability) {
-    switch (mutability) {
-        case 'IMMUTABLE':
-            return styles.immutable;
-        case 'MUTABLE':
-            return styles.mutable;
-        case 'SEGMENTED':
-            return styles.segmented;
-        default:
-            return null;
+function mediaBlockRenderer(block) {
+    if (block.getType() === 'atomic') {
+        return {
+            component: Media,
+            editable: false
+        };
     }
+    return null;
 }
-var TokenSpan = function TokenSpan(props) {
-    var style = getDecoratedStyle(props.contentState.getEntity(props.entityKey).getMutability());
-    return _react2.default.createElement(
-        'span',
-        { 'data-offset-key': props.offsetkey, style: style },
-        props.children
-    );
+
+var Audio = function Audio(props) {
+    return _react2.default.createElement('audio', { controls: true, src: props.src, style: styles.media });
 };
+var Image = function Image(props) {
+    return _react2.default.createElement('img', { src: props.src, style: styles.media });
+};
+var Video = function Video(props) {
+    return _react2.default.createElement('video', { controls: true, src: props.src, style: styles.media });
+};
+
+var Media = function Media(props) {
+    var entity = props.contentState.getEntity(props.block.getEntityAt(0));
+
+    var _entity$getData = entity.getData(),
+        src = _entity$getData.src;
+
+    var type = entity.getType();
+
+    var media = void 0;
+    if (type === 'audio') {
+        media = _react2.default.createElement(Audio, { src: src });
+    } else if (type === 'image') {
+        media = _react2.default.createElement(Image, { src: src });
+    } else if (type === 'video') {
+        media = _react2.default.createElement(Video, { src: src });
+    }
+
+    return media;
+};
+
 var styles = {
     root: {
-        fontFamily: '\'Helvetica\', sans-serif',
+        fontFamily: '\'Georgia\', serif',
         padding: 20,
         width: 600
+    },
+    buttons: {
+        marginBottom: 10
+    },
+    urlInputContainer: {
+        marginBottom: 10
+    },
+    urlInput: {
+        fontFamily: '\'Georgia\', serif',
+        marginRight: 10,
+        padding: 3
     },
     editor: {
         border: '1px solid #ccc',
@@ -45406,21 +45526,13 @@ var styles = {
         marginTop: 10,
         textAlign: 'center'
     },
-    immutable: {
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        padding: '2px 0'
-    },
-    mutable: {
-        backgroundColor: 'rgba(204, 204, 255, 1.0)',
-        padding: '2px 0'
-    },
-    segmented: {
-        backgroundColor: 'rgba(248, 222, 126, 1.0)',
-        padding: '2px 0'
+    media: {
+        width: '100%'
     }
 };
-_reactDom2.default.render(_react2.default.createElement(EntityEditorExample, null), document.getElementById('root'));
+
+_reactDom2.default.render(_react2.default.createElement(MediaEditorExample, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=entity.js.map
+//# sourceMappingURL=media.js.map
